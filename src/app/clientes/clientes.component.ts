@@ -14,7 +14,7 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
      this.clienteService.getClientes().subscribe(
-       clientes => this.clientes = clientes //funcion anonima
+       clientes => this.clientes = clientes //funcion anonima que asigna a clientes la lista cliented clienteService
 
      );
   }
