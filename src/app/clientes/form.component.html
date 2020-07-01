@@ -1,6 +1,6 @@
 <div class="card bg-dark text-white">
   <div class="card-header">
-    {{titulo}}
+    {{getTitulo()}}
   </div>
   <div class="card-body">
     <form class="" (ngSubmit)="create()"  method="post">
@@ -8,17 +8,17 @@
 
         <label for="nombre" class="col-form-label col-sm-3">Nombre</label>
         <div class="col-sm-7">
-          <input type="text" name="nombre" value="" class="form-control" [(ngModel)]="cliente.name">
+          <input type="text" name="nombre" value="" class="form-control" [(ngModel)]="getCliente().name">
         </div>
 
         <label for="apellido" class="col-form-label col-sm-3">Apellido</label>
         <div class="col-sm-7">
-          <input type="text" name="apellido"  class="form-control" [(ngModel)]="cliente.lastname">
+          <input type="text" name="apellido"  class="form-control" [(ngModel)]="getCliente().lastname">
         </div>
 
         <label for="email" class="col-form-label col-sm-3">Email</label>
         <div class="col-sm-7">
-          <input type="email" name="email" value="" class="form-control" [(ngModel)]="cliente.email">
+          <input type="email" name="email" value="" class="form-control" [(ngModel)]="getCliente().email">
         </div>
 
       </div>
