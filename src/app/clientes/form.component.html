@@ -3,7 +3,7 @@
     {{getTitulo()}}
   </div>
   <div class="card-body">
-    <form class="" (ngSubmit)="create()"  method="post">
+    <form class=""  method="post">
       <div class="form-group row">
 
         <label for="nombre" class="col-form-label col-sm-3">Nombre</label>
@@ -26,7 +26,12 @@
       <div class="form-group row">
 
         <div class="col-sm-6">
-          <button class="btn btn-primary" role="button" name="crear">Crear</button>
+          <button class="btn btn-primary" role="button" name="crear" (click)='create()' 
+                  *ngIf="!getCliente().id else elseBlock">Crear</button>
+          
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" name="crear" (click)='update()'>Editar</button>
+          </ng-template>
         </div>
 
       </div>

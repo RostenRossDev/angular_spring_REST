@@ -42,7 +42,15 @@ export class FormComponent implements OnInit {
         Swal.fire('Nuevo cliente', `Cliente ${this.cliente.name} creado con éxito!`, 'success')
       }
     );
+
   }
 
+  public update():void{
+    this.clienteService.update(this.cliente)
+      .subscribe(cliente =>{
+        this.router.navigate(['/clientes'])
+        Swal.fire('Cliente Actualizado', `Cliente ${cliente.name} actualizado con éxito`, 'success')
+      })
+  }
 
 }
