@@ -8,17 +8,21 @@
 
         <label for="nombre" class="col-form-label col-sm-3">Nombre</label>
         <div class="col-sm-7">
-          <input type="text" name="nombre" value="" class="form-control" [(ngModel)]="getCliente().name">
+          <input type="text" name="nombre" value="" class="form-control" 
+          [(ngModel)]="getCliente().name" required minlength="4" #nombre="ngModel">
         </div>
 
         <label for="apellido" class="col-form-label col-sm-3">Apellido</label>
         <div class="col-sm-7">
-          <input type="text" name="apellido"  class="form-control" [(ngModel)]="getCliente().lastname">
+          <input type="text" name="apellido"  class="form-control" 
+          [(ngModel)]="getCliente().lastname" required #apellido="ngModel">
+
         </div>
 
         <label for="email" class="col-form-label col-sm-3">Email</label>
         <div class="col-sm-7">
-          <input type="email" name="email" value="" class="form-control" [(ngModel)]="getCliente().email">
+          <input type="email" name="email" value="" class="form-control" 
+          [(ngModel)]="getCliente().email" required email #email="ngModel">
         </div>
 
       </div>
@@ -33,7 +37,28 @@
             <button class="btn btn-primary" role="button" name="crear" (click)='update()'>Editar</button>
           </ng-template>
         </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="nombre.invalid  && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors.required">
+            ¡¡El nombre es obligatorio!!
+        </div>    
+        <div *ngIf="nombre.errors.minlength">
+            ¡¡El nombre debe tener al menos 4 caracteres!!
+        </div>  
+      </div>
+      <div class="alert alert-danger" *ngIf="apellido.invalid  && (apellido.dirty || apellido.touched)">
+        <div *ngIf="apellido.errors.required">
+            ¡¡El apellido es obligatorio!!
+        </div>
+      </div>
 
+      <div class="alert alert-danger" *ngIf="email.invalid  && (email.dirty || email.touched)">
+        <div *ngIf="email.errors.required">
+            ¡¡El email es obligatorio!!
+        </div>
+        <div *ngIf="email.errors.email">
+            ¡¡El email debe tener un formato valido!!
+        </div>
       </div>
     </form>
   </div>
