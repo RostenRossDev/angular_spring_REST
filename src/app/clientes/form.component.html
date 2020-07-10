@@ -1,3 +1,8 @@
+<ul  class="aler laert-danger" *ngIf="getErrores()?.length >0 ">
+  <li *ngFor="let err of getErrores()">
+    {{ err }}
+  </li>
+</ul>
 <div class="card bg-dark text-white">
   <div class="card-header">
     {{getTitulo()}}
@@ -9,20 +14,20 @@
         <label for="nombre" class="col-form-label col-sm-3">Nombre</label>
         <div class="col-sm-7">
           <input type="text" name="nombre" value="" class="form-control" 
-          [(ngModel)]="getCliente().name" required minlength="4" #nombre="ngModel">
+          [(ngModel)]="getCliente().name" #nombre="ngModel">
         </div>
 
         <label for="apellido" class="col-form-label col-sm-3">Apellido</label>
         <div class="col-sm-7">
           <input type="text" name="apellido"  class="form-control" 
-          [(ngModel)]="getCliente().lastname" required #apellido="ngModel">
+          [(ngModel)]="getCliente().lastname"  #apellido="ngModel">
 
         </div>
 
         <label for="email" class="col-form-label col-sm-3">Email</label>
         <div class="col-sm-7">
           <input type="email" name="email" value="" class="form-control" 
-          [(ngModel)]="getCliente().email" required email #email="ngModel">
+          [(ngModel)]="getCliente().email"  #email="ngModel">
         </div>
 
       </div>
