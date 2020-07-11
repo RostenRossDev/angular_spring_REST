@@ -1,0 +1,15 @@
+<ul *ngIf="pages?.length >0s" class="pagination">
+
+    <li>
+        <a class="page-link" [routerLink]= "['/clientes/page', 0]"> Primera</a>
+    </li>
+
+    <li *ngFor="let page of pages" [ngClass]="page-1 == paginator.number?'diabled': ''">
+        <span class="page-link" *ngIf="page-1 == paginator.number">{{page}}</span>
+        <a *ngIf="page-1 != paginator.numer" class="page-link" [routerLink]= "['/clientes/page', page-1]" >{{page}}</a>
+    </li>
+
+    <li> 
+        <a class="page-link" [routerLink]= "['/clientes/page', pages.length-1]">Ultimo</a>
+    </li>
+</ul>
